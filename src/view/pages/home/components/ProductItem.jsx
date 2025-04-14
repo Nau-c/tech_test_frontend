@@ -6,7 +6,7 @@ import { SeeMoreBtn } from './SeeMoreBtn.jsx'
 
 export const ProductItem = ({ id, imgUrl, brand, model, price }) => {
     return (
-        <div className="relative w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 group transition-all overflow-hidden">
+        <div className="relative w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 group transition-all">
             <Link href={`/product/${id}`} className="flex flex-col items-center p-4 relative z-10">
                 <Image
                     src={imgUrl}
