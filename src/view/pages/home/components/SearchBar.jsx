@@ -13,15 +13,15 @@ export const SearchBar = ({ onSearch }) => {
     }, [debouncedValue, onSearch]);
 
     return (
-        <div className="flex flex-row justify-between items-center">
-            <h2 className="text-gray-700 text-lg font-semibold mb-2">Lista de productos</h2>
+        <div className="flex flex-row justify-between items-center px-4">
+            <h2 className="text-gray-700 text-lg font-semibold mb-2"></h2>
             <form onSubmit={(e) => e.preventDefault()} className="w-full max-w-md">
                 <input
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     placeholder="Buscar..."
-                    className="w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full  px-4 py-2 border-2 border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-green"
                 />
             </form>
         </div>

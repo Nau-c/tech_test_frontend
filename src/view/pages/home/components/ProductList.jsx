@@ -27,7 +27,7 @@ export const ProductList = ({ searchQuery }) => {
 
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 h-[calc(100vh-12rem)] overflow-y-auto p-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 h-[calc(100vh-14rem)] overflow-y-auto p-4">
             {filteredProducts && filteredProducts.map(product => (
                 <ProductItem
                     key={product.id}

@@ -8,7 +8,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-neon-green: #2CFF05;
+  --color-primary-green: #10B981;
+  --color-hover-green: #059669;
+  --color-bg-green: #ECFDF5;
+  --color-custom-black: #1A1A1A;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
