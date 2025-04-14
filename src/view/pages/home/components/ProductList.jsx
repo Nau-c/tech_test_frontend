@@ -9,9 +9,15 @@ export const ProductList = ({ searchQuery }) => {
 
     const filteredProducts = useMemo(() => {
         if (!searchQuery) return products;
-        return products?.filter(product =>
-            product.model.toLowerCase().includes(searchQuery)
-        );
+
+        return products?.filter(product => {
+            const query = searchQuery.toLowerCase();
+            const modelMatch = product.model.toLowerCase().includes(query);
+            const brandMatch = product.brand.toLowerCase().includes(query);
+            const priceMatch = product.price.toString().includes(query);
+
+            return modelMatch || brandMatch || priceMatch;
+        })
     }, [searchQuery])
 
 
