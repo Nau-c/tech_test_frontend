@@ -58,16 +58,16 @@ export const Actions = ({ productId }) => {
     }
 
     return (
-        <section className="w-full lg:w-1/2 xl:w-1/2 bg-white p-0 sm:p-2 mx-4 sm:mx-0 sm:m-0">
+        <section className="w-full bg-white p-0 sm:p-2 mx-4 sm:mx-0 sm:m-0">
             <h3 className="text-xl font-semibold text-gray-800 mb-4">Selecciona tus opciones</h3>
 
-            <div className="flex flex-col sm:flex-col md:flex-col lg:flex-col xl:flex-row gap-4 sm:gap-10">
-                <div className="w-full sm:w-1/2">
+            <div className="w-fit flex flex-col md:flex-row lg:flex-row xl:flex-row gap-10 sm:gap-10  justify-center items-start">
+                <div className="w-full">
                     <label className="block mb-2 font-medium">Almacenamiento</label>
                     <select
                         value={selectedStorage}
                         onChange={(e) => setSelectedStorage(e.target.value)}
-                        className="w-full sm:w-52 px-3 py-2 rounded border border-gray-300 outline-primary-green"
+                        className="w-72 sm:w-40 md:w-52 lg:w-52 xl:w-52 px-3 py-2 rounded border border-gray-300 outline-primary-green"
                     >
                         {storages.map((storage) => (
                             <option key={storage.code} value={storage.code}>
@@ -77,12 +77,12 @@ export const Actions = ({ productId }) => {
                     </select>
                 </div>
 
-                <div className="w-full sm:w-1/2">
+                <div className="w-full">
                     <label className="block mb-2 font-medium">Color</label>
                     <select
                         value={selectedColor}
                         onChange={(e) => setSelectedColor(e.target.value)}
-                        className="w-full sm:w-52 px-3 py-2 rounded border border-gray-300 outline-primary-green"
+                        className="w-72 sm:w-40 md:w-52 lg:w-52 xl:w-52 px-3 py-2 rounded border border-gray-300 outline-primary-green"
                     >
                         {colors.map((color) => (
                             <option key={color.code} value={color.code}>
