@@ -1,14 +1,16 @@
 'use client'
 
-import { useEffect, useMemo } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { ProductItem } from './ProductItem.jsx'
 import { useProductsContext } from '@/store/product.context.jsx'
 import { ProductItemSkeleton } from './ProductList.skeleton.jsx'
 
 export const ProductList = ({ searchQuery }) => {
     const { products, loading, error } = useProductsContext()
+    const [filteredProducts, setFilteredProducts] = useState(products ?? [])
 
-    const filteredProducts = useMemo(() => {
+
+    const getFilteredProducts = useCallback(() => {
         if (!searchQuery) return products;
 
         return products?.filter(product => {
@@ -19,7 +21,12 @@ export const ProductList = ({ searchQuery }) => {
 
             return modelMatch || brandMatch || priceMatch;
         })
-    }, [searchQuery])
+    }, [products, searchQuery])
+
+    useEffect(() => {
+        const filtered = getFilteredProducts();
+        setFilteredProducts(filtered ?? []);
+    }, [getFilteredProducts]);
 
 
     if (loading) return <span>Cargando productos...</span>

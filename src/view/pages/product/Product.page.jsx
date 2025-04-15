@@ -7,24 +7,56 @@ import { getProductByIdApi } from '@/services/api'
 import Link from 'next/link'
 import { IoIosArrowRoundBack } from "react-icons/io"
 import { ActionsSkeleton, DescriptionSkeleton, ImageSkeleton } from './Product.skeleton'
+import { ModalAlert } from '@/view/ui/ModalAlert'
 
 export const ProductPage = ({ id }) => {
     const [productData, setProductData] = useState(null)
     const [loading, setLoading] = useState(true)
 
-    const getProductData = async (id) => {
+    const [modalMessage, setModalMessage] = useState('')
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
+    const getProductData = async (productId) => {
         setLoading(true)
+
         try {
-            const response = await getProductByIdApi(id)
+            const cacheKey = `product-${productId}`
+            const cachedData = localStorage.getItem(cacheKey)
+
+            if (cachedData) {
+                try {
+                    const parsedProduct = JSON.parse(cachedData)
+
+                    if (String(parsedProduct?.id) === String(productId)) {
+                        console.log('Usando producto desde cache')
+                        setProductData(parsedProduct)
+                        setLoading(false)
+                        return
+                    } else {
+                        console.warn('Producto en cache no coincide, eliminando...')
+                        localStorage.removeItem(cacheKey)
+                    }
+                } catch (parseError) {
+                    console.error("Error parseando cache, eliminando...")
+                    localStorage.removeItem(cacheKey)
+                }
+            }
+
+            const response = await getProductByIdApi(productId)
+
             if (response) {
                 setProductData(response)
+                localStorage.setItem(cacheKey, JSON.stringify(response))
             } else {
-                console.error("No product data found")
+                console.error("No se encontró el producto")
+                setModalMessage('No se encontró el producto')
+                setIsModalOpen(true)
             }
 
         } catch (error) {
-            console.error("Error fetching product data:", error);
-            return null;
+            console.error("Error al obtener el producto:", error)
+            setModalMessage('Error al cargar el producto')
+            setIsModalOpen(true)
         } finally {
             setLoading(false)
         }
@@ -33,6 +65,10 @@ export const ProductPage = ({ id }) => {
     useEffect(() => {
         getProductData(id)
     }, [id])
+
+    const closeModal = () => {
+        setIsModalOpen(false)
+    }
 
 
 
@@ -51,6 +87,9 @@ export const ProductPage = ({ id }) => {
                 {loading ? <DescriptionSkeleton /> : <Description productData={productData} />}
                 {loading ? <ActionsSkeleton /> : <Actions productId={id} />}
             </div>
+
+            {isModalOpen && <ModalAlert message={modalMessage} onClose={closeModal} />}
+
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { addProductToCartApi } from '@/services/api'
-import { ModalAlert } from './ModalAlert'
+import { ModalAlert } from '@/view/ui/ModalAlert'
 
 const options = {
     colors: [
