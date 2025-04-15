@@ -22,7 +22,7 @@ export const Header = () => {
     return (
         <header className="flex h-24 items-center justify-between p-4 px-10 bg-white text-white">
             <Link href="/">
-                <span className="text-4xl font-bold text-primary-green px-5">ACER</span>
+                <span className="text-4xl font-bold text-primary-green px-5">Móviles</span>
 
             </Link>
             <div className='flex items-center gap-4 hover:cursor-pointer border-1 border-primary-green px-6 py-3 rounded-full hover:bg-primary-green text-primary-green hover:text-white'>

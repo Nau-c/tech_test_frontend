@@ -25,13 +25,15 @@ export const ProductList = ({ searchQuery }) => {
     if (loading) return <span>Cargando productos...</span>
     if (error) return <span>Error: {error}</span>
     if (!products || products.length === 0) return <span>No hay productos disponibles</span>
+    if (filteredProducts.length === 0) return <span>No hay productos disponibles</span>
+
 
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 h-[calc(100vh-14rem)] overflow-y-auto p-4">
             {loading
                 ? Array.from({ length: 8 }).map((_, i) => <ProductItemSkeleton key={i} />)
-                : filteredProducts.map(product => (
+                : filteredProducts?.map(product => (
                     <ProductItem
                         key={product.id}
                         id={product.id}

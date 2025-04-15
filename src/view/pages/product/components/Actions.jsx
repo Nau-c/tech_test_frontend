@@ -58,10 +58,10 @@ export const Actions = ({ productId }) => {
     }
 
     return (
-        <section className="w-full lg:w-1/2 xl:w-1/2 bg-white p-4 sm:p-2 mx-4 sm:mx-0 sm:m-0">
+        <section className="w-full lg:w-1/2 xl:w-1/2 bg-white p-0 sm:p-2 mx-4 sm:mx-0 sm:m-0">
             <h3 className="text-xl font-semibold text-gray-800 mb-4">Selecciona tus opciones</h3>
 
-            <div className="flex sm:flex-col md:flex-col lg:flex-col xl:flex-row gap-4 sm:gap-10">
+            <div className="flex flex-col sm:flex-col md:flex-col lg:flex-col xl:flex-row gap-4 sm:gap-10">
                 <div className="w-full sm:w-1/2">
                     <label className="block mb-2 font-medium">Almacenamiento</label>
                     <select
