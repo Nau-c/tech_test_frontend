@@ -70,5 +70,8 @@ npm run test    # Tests unitarios con Jest
 Clona el repositorio:
 https://github.com/Nau-c/tech_test_frontend.git
 
+Como ejecutar los tests:
+npm run test
+
 ✍️ Autor
 Nauzet López Mendoza
