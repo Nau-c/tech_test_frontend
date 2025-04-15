@@ -34,3 +34,41 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+# 📱 ITX - Prueba Técnica Frontend
+
+Mini-aplicación desarrollada como solución para la prueba técnica de ITX, donde se implementa un sistema SPA para la compra de dispositivos móviles utilizando React 19 y Next.js 15.
+
+---
+
+## 🚀 Tecnologías utilizadas
+
+- **React 19**
+- **Next.js 15.3 (App Router)**
+- **Tailwind CSS 4**
+- **Jest** y **Testing Library** para pruebas unitarias
+- **JavaScript (ES6+)**
+- **SPA sin SSR** (Single Page Application)
+- **React Context API** para la gestión del carrito
+
+---
+
+## 🧱 Estructura del proyecto
+
+src/ ├── hook/ # Custom Hooks (useCachedFetch, useDebounce) ├── services/ # Funciones de integración con la API ├── store/ # Contexto y proveedor del carrito ├── view/ │ └── pages/ │ └── home/ # Vista principal y componentes │ └── detail/ # Vista de detalle del producto ├── styles/ # Estilos globales public/ # Archivos estáticos
+
+🛠️ Scripts disponibles
+npm run dev     # Desarrollo con Turbopack
+npm run build   # Build para producción
+npm run start   # Servidor de producción
+npm run lint    # Linter
+npm run test    # Tests unitarios con Jest
+
+
+📦 Cómo ejecutar el proyecto
+Clona el repositorio:
+
+
+✍️ Autor
+Nauzet López Mendoza

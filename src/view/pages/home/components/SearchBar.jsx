@@ -1,7 +1,9 @@
 'use client';
 
+import React from 'react';
+
 import { useState, useEffect } from 'react';
-import { useDebounce } from '@/hook/useDebounce.js';
+import { useDebounce } from '@/hook/useDebounce';
 
 export const SearchBar = ({ onSearch }) => {
     const [inputValue, setInputValue] = useState('');

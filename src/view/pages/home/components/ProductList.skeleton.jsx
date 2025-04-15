@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const ProductItemSkeleton = () => (
     <div className="w-full max-w-xs h-72 bg-white border border-gray-200 rounded-lg shadow animate-pulse">
         <div className="w-full h-40 bg-gray-300 rounded-t-md" />
