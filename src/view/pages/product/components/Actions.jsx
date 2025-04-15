@@ -58,15 +58,16 @@ export const Actions = ({ productId }) => {
     }
 
     return (
-        <section className="w-full bg-white p-8 mx-">
-            <h3 className="text-xl font-semibold text-gray-800">Selecciona tus opciones</h3>
-            <div className='flex w-full gap-10'>
-                <div>
-                    <label className="block mb-1 font-medium">Almacenamiento</label>
+        <section className="w-full lg:w-1/2 xl:w-1/2 bg-white p-4 sm:p-2 mx-4 sm:mx-0 sm:m-0">
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">Selecciona tus opciones</h3>
+
+            <div className="flex sm:flex-col md:flex-col lg:flex-col xl:flex-row gap-4 sm:gap-10">
+                <div className="w-full sm:w-1/2">
+                    <label className="block mb-2 font-medium">Almacenamiento</label>
                     <select
                         value={selectedStorage}
                         onChange={(e) => setSelectedStorage(e.target.value)}
-                        className="w-52 px-3 py-2 rounded border border-gray-300 outline-primary-green"
+                        className="w-full sm:w-52 px-3 py-2 rounded border border-gray-300 outline-primary-green"
                     >
                         {storages.map((storage) => (
                             <option key={storage.code} value={storage.code}>
@@ -76,12 +77,12 @@ export const Actions = ({ productId }) => {
                     </select>
                 </div>
 
-                <div>
-                    <label className="block mb-1 font-medium">Color</label>
+                <div className="w-full sm:w-1/2">
+                    <label className="block mb-2 font-medium">Color</label>
                     <select
                         value={selectedColor}
                         onChange={(e) => setSelectedColor(e.target.value)}
-                        className="w-52 px-3 py-2 rounded border border-gray-300 outline-primary-green"
+                        className="w-full sm:w-52 px-3 py-2 rounded border border-gray-300 outline-primary-green"
                     >
                         {colors.map((color) => (
                             <option key={color.code} value={color.code}>
@@ -91,13 +92,15 @@ export const Actions = ({ productId }) => {
                     </select>
                 </div>
             </div>
+
             <button
                 onClick={handleAddToCart}
                 disabled={loading}
-                className="w-[28.5rem] mt-5 bg-primary-green text-white text-lg font-semibold py-3 px-4 rounded-full hover:bg-hover-green active:bg-primary-green transition-colors disabled:opacity-50"
+                className="w-full sm:w-[28.5rem] mt-6 bg-primary-green text-white text-lg font-semibold py-3 px-4 rounded-full hover:bg-hover-green active:bg-primary-green transition-colors disabled:opacity-50"
             >
                 {loading ? 'Añadiendo...' : 'Añadir a la cesta'}
             </button>
+
             {isModalOpen && <ModalAlert message={modalMessage} onClose={closeModal} />}
         </section>
     )

@@ -6,7 +6,7 @@ export const ImageComponent = ({ imgUrl, model }) => {
     if (!imgUrl) return null;
 
     return (
-        <div className='w-full h-full pt-10 flex justify-center items-start hove:w-[500px] hover:h-[950px] transition-all'>
+        <div className='w-full h-full pt-10 sm:p-0 flex justify-center items-start transition-all'>
             <Image
                 src={imgUrl}
                 width={350}
