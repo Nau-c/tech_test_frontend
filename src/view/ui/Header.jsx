@@ -7,6 +7,8 @@ export const Header = () => {
     const [cartCount, setCartCount] = useState(0)
 
     useEffect(() => {
+        if (typeof window === 'undefined') return
+
         const update = () => {
             const count = localStorage.getItem('cartCount') || 0
             setCartCount(parseInt(count))
@@ -15,7 +17,7 @@ export const Header = () => {
         update()
         window.addEventListener('cartCountUpdated', update)
         return () => window.removeEventListener('cartCountUpdated', update)
-    }, [localStorage])
+    }, [])
 
     return (
         <header className="flex h-24 items-center justify-between p-4 px-10 bg-white text-white">

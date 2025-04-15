@@ -42,7 +42,7 @@ export const Actions = ({ productId }) => {
                 updateCartCount(res.count)
             }
 
-            setModalMessage('Producto añadido correctamente ✅')
+            setModalMessage('Producto añadido correctamente')
             setIsModalOpen(true)
         } catch (error) {
             console.error('Error al añadir el producto', error)
@@ -58,44 +58,43 @@ export const Actions = ({ productId }) => {
     }
 
     return (
-        <section className="w-full max-w-md bg-gray-100 p-6 rounded-xl shadow-md mt-6 space-y-4 ">
+        <section className="w-full bg-white p-8 mx-">
             <h3 className="text-xl font-semibold text-gray-800">Selecciona tus opciones</h3>
+            <div className='flex w-full gap-10'>
+                <div>
+                    <label className="block mb-1 font-medium">Almacenamiento</label>
+                    <select
+                        value={selectedStorage}
+                        onChange={(e) => setSelectedStorage(e.target.value)}
+                        className="w-52 px-3 py-2 rounded border border-gray-300 outline-primary-green"
+                    >
+                        {storages.map((storage) => (
+                            <option key={storage.code} value={storage.code}>
+                                {storage.name}
+                            </option>
+                        ))}
+                    </select>
+                </div>
 
-            <div>
-                <label className="block mb-1 font-medium">Almacenamiento</label>
-                <select
-                    value={selectedStorage}
-                    onChange={(e) => setSelectedStorage(e.target.value)}
-                    className="w-full px-3 py-2 rounded border border-gray-300"
-                >
-                    {storages.map((storage) => (
-                        <option key={storage.code} value={storage.code}>
-                            {storage.name}
-                        </option>
-                    ))}
-                </select>
+                <div>
+                    <label className="block mb-1 font-medium">Color</label>
+                    <select
+                        value={selectedColor}
+                        onChange={(e) => setSelectedColor(e.target.value)}
+                        className="w-52 px-3 py-2 rounded border border-gray-300 outline-primary-green"
+                    >
+                        {colors.map((color) => (
+                            <option key={color.code} value={color.code}>
+                                {color.name}
+                            </option>
+                        ))}
+                    </select>
+                </div>
             </div>
-
-            <div>
-                <label className="block mb-1 font-medium">Color</label>
-                <select
-                    value={selectedColor}
-                    onChange={(e) => setSelectedColor(e.target.value)}
-                    className="w-full px-3 py-2 rounded border border-gray-300"
-                >
-                    {colors.map((color) => (
-                        <option key={color.code} value={color.code}>
-                            {color.name}
-                        </option>
-                    ))}
-                </select>
-            </div>
-
-            {/* Botón de acción */}
             <button
                 onClick={handleAddToCart}
                 disabled={loading}
-                className="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition-colors disabled:opacity-50"
+                className="w-[28.5rem] mt-5 bg-primary-green text-white text-lg font-semibold py-3 px-4 rounded-full hover:bg-hover-green active:bg-primary-green transition-colors disabled:opacity-50"
             >
                 {loading ? 'Añadiendo...' : 'Añadir a la cesta'}
             </button>

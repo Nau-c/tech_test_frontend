@@ -6,7 +6,7 @@ export const ModalAlert = ({ message, onClose }) => {
             <h3 className="text-xl font-semibold text-gray-800">{message}</h3>
             <button
                 onClick={onClose}
-                className="mt-4 w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition-colors"
+                className="mt-4 w-full bg-primary-green text-white font-semibold py-2 px-4 rounded-full hover:bg-hover-green transition-colors"
             >
                 Cerrar
             </button>

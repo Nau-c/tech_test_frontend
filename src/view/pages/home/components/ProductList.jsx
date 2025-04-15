@@ -3,6 +3,7 @@
 import { useEffect, useMemo } from 'react'
 import { ProductItem } from './ProductItem.jsx'
 import { useProductsContext } from '@/store/product.context.jsx'
+import { ProductItemSkeleton } from './ProductList.skeleton.jsx'
 
 export const ProductList = ({ searchQuery }) => {
     const { products, loading, error } = useProductsContext()
@@ -28,16 +29,19 @@ export const ProductList = ({ searchQuery }) => {
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 h-[calc(100vh-14rem)] overflow-y-auto p-4">
-            {filteredProducts && filteredProducts.map(product => (
-                <ProductItem
-                    key={product.id}
-                    id={product.id}
-                    imgUrl={product.imgUrl}
-                    brand={product.brand}
-                    model={product.model}
-                    price={product.price}
-                />
-            ))}
+            {loading
+                ? Array.from({ length: 8 }).map((_, i) => <ProductItemSkeleton key={i} />)
+                : filteredProducts.map(product => (
+                    <ProductItem
+                        key={product.id}
+                        id={product.id}
+                        imgUrl={product.imgUrl}
+                        brand={product.brand}
+                        model={product.model}
+                        price={product.price}
+                    />
+                ))
+            }
         </div>
     )
 }
