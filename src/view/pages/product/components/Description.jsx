@@ -22,7 +22,7 @@ export const Description = ({ productData }) => {
     const formatArray = (value) => Array.isArray(value) ? value.join(', ') : value || 'No disponible'
 
     return (
-        <section className="w-full lg:w-2/3 xl:w-2/3 bg-white p-8 sm:p-2 md:p-2 mx-auto sm:mx-0 md:mx-0 ">
+        <section className="w-full  xl:w-2/3 bg-white p-8 sm:p-2 md:p-2 mx-auto sm:mx-0 md:mx-0 gap-4 flex flex-col">
             <h2 className="text-2xl font-bold mb-6 sm:mb-0  text-gray-800">Especificaciones del producto</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4 text-gray-700 text-md sm:text-base">
                 <div>
